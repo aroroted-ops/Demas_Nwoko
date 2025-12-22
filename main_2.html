@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David @ 22 - His Legacy</title>
+<style>
+  /* Base styles for light theme */
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* Using a clean serif font for an elegant, light feel */
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    /* Light cream background color */
+    background-color: #f9f7f1;
+    /* Soft dark gray for text, not harsh black */
+    color: #555555;
+  }
+
+  /* Main container holding the three elements */
+  .landing-container {
+    display: flex;
+    /* Distribute space evenly between elements */
+    justify-content: space-evenly;
+    /* Align items vertically in the center */
+    align-items: center;
+    /* Ensure the container takes up the full viewport height */
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  /* Styles for the side text blocks */
+  .side-text {
+    flex: 1; /* Allow text blocks to grow */
+    text-align: center;
+    padding: 1rem;
+  }
+
+  /* Typography for the main text */
+  .side-text h1 {
+    font-size: 2.5rem;
+    font-weight: 400; /* Lighter weight for elegance */
+    letter-spacing: 0.05em;
+    margin: 0;
+    /* Optional subtle gold accent color for text */
+    color: #8a7f60;
+  }
+
+  /* Container for the central image */
+  .center-image-wrapper {
+    flex: 0 0 auto; /* Do not stretch */
+    margin: 0 2rem; /* Spacing around the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Styling the image itself */
+  .center-image {
+    /* Constrain width so it doesn't overpower the page */
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Optional subtle drop shadow to lift it off the light background */
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
+  }
+
+  /* Responsive design for smaller screens (tablets and phones) */
+  @media (max-width: 768px) {
+    .landing-container {
+      /* Stack elements vertically on small screens */
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .side-text, .center-image-wrapper {
+      /* Add vertical spacing between stacked elements */
+      margin: 1.5rem 0;
+    }
+
+    /* Order adjustments for mobile flow: Image first, then text */
+    .center-image-wrapper {
+      order: 1;
+    }
+    .left-text-block {
+      order: 2;
+    }
+    .right-text-block {
+      order: 3;
+    }
+
+    .side-text h1 {
+      font-size: 1.8rem; /* Reduce font size slightly on mobile */
+    }
+  }
+</style>
+</head>
+<body>
+
+  <main class="landing-container">
+    <div class="side-text left-text-block">
+      <h1>David @ 22</h1>
+    </div>
+
+    <div class="center-image-wrapper">
+      <img src="image_3.png" alt="TLI Gold Logo" class="center-image">
+    </div>
+
+    <div class="side-text right-text-block">
+      <h1>His legacy, His heart's beat</h1>
+    </div>
+  </main>
+
+</body>
+</html>
