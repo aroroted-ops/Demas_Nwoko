@@ -11,14 +11,14 @@
     <style>
         @font-face {
             font-family: 'MyFont';
-            src: url('NewCulture-Regular.otf') format('opentype');
+            src: url('src/NewCulture-Regular.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
 
         :root {
-            /* Brand Color Tokens [cite: 90-95, 186-194] */
+            /* Brand Color Tokens */
             --nc-graypurple: #1c182e;
             --nc-green: #039641;
             --nc-orange: #fc6c02;
@@ -32,6 +32,11 @@
         }
 
         * { box-sizing: border-box; }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             margin: 0;
             background-color: var(--lilac);
@@ -41,7 +46,7 @@
             font-size: 16px;
         }
 
-        /* Sticky Header [cite: 112-115] */
+        /* Sticky Header */
         header {
             position: sticky;
             top: 0;
@@ -64,16 +69,20 @@
             letter-spacing: 1px;
         }
 
-        /* Hero Section [cite: 116-121] */
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             padding: 0 10%;
+            position: relative;
+            overflow: hidden;
             background: linear-gradient(rgba(28, 24, 46, 0.6), rgba(28, 24, 46, 0.8)), 
                         url('img_1/Garden.jpeg') center/cover no-repeat;
-            background-attachment: scroll; /* Parallax effect [cite: 118] */
+            background-attachment: scroll;
         }
+
+
 
         .hero-content { max-width: 100%;
             display: flex;
@@ -130,30 +139,67 @@
             letter-spacing: 1px;
             margin-right: 1rem;
             transition: 0.3s;
+            border-radius: 8px; 
+            border-bottom: 1px solid rgba(244, 160, 54, 0.2);
         }
 
         .btn-green { background: var(--nc-green); 
             color: white; }
 
         .btn-outline { border: 1px solid var(--nc-gold); 
-            color: var(--nc-gold); }
+            color: var(--nc-gold);}
 
         /* General Section Layout */
         section { padding: 8rem 10%; }
         h3 { font-family: var(--heading-font); color: var(--nc-gold); font-size: 2.2rem; }
+        
+        .intro {
+            text-align: center;
+            background: var(--lilac);
+            border-bottom: 1px solid rgba(244, 160, 54, 0.2);
+        }
 
-        /* Split Section: Artwork [cite: 122-129] */
-        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .art-img { width: 100%; border: 1px solid var(--nc-gold); padding: 10px; background: #25213b; }
+        .intro-content h1 {
+            font-family: var(--custom-font);
+            font-size: 3rem;
+            margin: 0;
+            color: var(--nc-gold);
+        }
 
-        /* Postcards Grid [cite: 130-138] */
-        .postcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .card { background: #25213b; padding: 2rem; border-bottom: 3px solid transparent; transition: 0.3s; cursor: pointer; }
-        .card:hover { border-bottom-color: var(--nc-orange); transform: translateY(-5px); }
-        .card strong { color: var(--nc-orange); display: block; margin-bottom: 1rem; }
+        .intro-content h2 {
+            font-family: var(--heading-font);
+            font-size: 2rem;
+            font-weight: 300;
+            margin: 0.5rem 0 1.5rem 0;
+        }
 
-        /* Story Section [cite: 139-153] */
-        .story-content { max-width: 800px; margin: 0 auto; }
+        .intro-sub {
+            font-size: 1.1rem;
+            border-left: 2px solid var(--nc-gold);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Split Section: Artwork */
+        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; border-bottom: 1px solid rgba(244, 160, 54, 0.2);}
+        .art-img { width: 100%; border: 1px solid var(--nc-gold); padding: 10px; background: var(--nc-graypurple); border-bottom: 1px solid var(--nc-gold); border-radius: 8px;}
+        .mini_exhibition {
+            color: var(--nc-gold);
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: var(--nc-green);
+        }
+
+        /* Postcards Grid */
+        .postcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;}
+        .card { background: #25213b; padding: 2rem; border-bottom: 3px solid transparent; transition: 0.3s; cursor: pointer; border-radius: 8px;}
+        .card:hover { border-bottom-color: var(--nc-orange); transform: translateY(-50px); }
+        .card strong { color: var(--nc-orange); display: list-item; margin-bottom: 1rem; }
+
+
+        /* Story Section */
+        .story-content { max-width: 800px; margin: 0 auto; background-color: var(--nc-graypurple); padding: 4rem; border-radius: 8px; border: 1px solid rgba(244, 160, 54, 0.2); }
         .pull-quote { 
             font-family: var(--heading-font); 
             font-size: 2.5rem; 
@@ -163,10 +209,10 @@
             line-height: 1.2;
         }
 
-        /* Credits [cite: 159-165, 201-204] */
-        .credits-box { background: rgba(255,255,255,0.05); padding: 3rem; margin-top: 4rem; font-size: 0.9rem; }
+        /* Credits */
+        .credits-box { background: var(--nc-graypurple); padding: 3rem; margin-top: 4rem; font-size: 0.9rem; border-radius: 8px; border: 1px solid rgba(244, 160, 54, 0.2); }
         
-        /* Audio Control [cite: 115] */
+        /* Audio Control */
         .audio-player { position: fixed; bottom: 20px; left: 20px; z-index: 1000; }
         .audio-btn { background: var(--nc-graypurple); border: 1px solid var(--nc-gold); color: var(--nc-gold); padding: 10px; cursor: pointer; }
 
@@ -174,6 +220,59 @@
             .split-section, .hero { flex-direction: column; text-align: center; }
             h1 { font-size: 2.5rem; }
             section { padding: 4rem 5%; }
+        }
+        /* Floating stroke canvases (follow pointer) */
+        .floating-stroke {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            pointer-events: none;
+            z-index: 900;
+            transform: translate(-50%, -50%) scale(1);
+            will-change: transform, opacity;
+            mix-blend-mode: multiply;
+            animation: floatFade 900ms cubic-bezier(.2,.8,.2,1) forwards;
+        }
+
+        @keyframes floatFade {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(0.8); }
+            60% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.05); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1.6); }
+        }
+
+        /* Watercolor texture overlay */
+        #watercolor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.35;
+            mix-blend-mode: overlay;
+        }
+
+        /* Legacy Initiative Logo */
+        .legacy-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            opacity: 0.7;
+            z-index: 999;
+            transition: opacity 0.3s ease;
+        }
+
+        .legacy-logo:hover {
+            opacity: 1;
+        }
+
+        .legacy-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
     </style>
 </head>
@@ -202,14 +301,17 @@
             <div class="side-text right-text-block">
                 <h1><span class="highlight">His Legacy<br>His heart's beat</span></h1>
             </div>
+        </div>
+    </section>
 
+    <section class="intro">
+        <div class="intro-content">
             <h1>Vernacular</h1>
             <h2>The Natural Language of Design</h2>
-            <div class="hero-sub">
+            <div class="intro-sub">
                 “Vernacular is the natural language called design the heartbeat of an authentic African modernity.”
             </div>
             <a href="#artwork" class="btn btn-green">View the Work</a>
-            <p style="font-size: 0.7rem; margin-top: 15px; text-transform: uppercase;">Scan the postcard</p>
         </div>
     </section>
 
@@ -222,34 +324,37 @@
                 <strong>ROOT</strong>
                 <p>“Vernacular is your mother tongue.”</p>
                 <small style="color: #888;">Red laterite field, textured strokes.</small>
+                <img src="img_1/Root_image_Postcard_1.jpeg" alt="Postcard Root" style="width: 100%; margin-top: 1rem; border: 1px solid var(--nc-gold);">
             </div>
             <div class="card">
                 <strong>LEGACY</strong>
                 <p>“Natural synthesis merging the local mind with modern practice.”</p>
                 <small style="color: #888;">Sketch fragments and theatre-stage shadows.</small>
+                <img src="img_1/Garden.jpeg" alt="Postcard Legacy" style="width: 100%; margin-top: 1rem; border: 1px solid var(--nc-gold);">
             </div>
             <div class="card">
                 <strong>FUTURE</strong>
                 <p>Design that speaks the client’s vernacular.</p>
                 <small style="color: #888;">Grounded projection through indigenous intelligence.</small>
+                <img src="img_1/Landing_Image_1.png" alt="Postcard Future" style="width: 100%; margin-top: 1rem; border: 1px solid var(--nc-gold);">
             </div>
         </div>
     </section>
 
-    <section id="postcards" style="background: #141122;"></section>
-    <section id="postcards" style="background: #141122;"></section>
+    |<!-- <section id="postcards" style="background: #141122;"></section>
+    <section id="postcards" style="background: #141122;"></section> -->
     
     <section id="artwork" class="split-section">
         <div>
             <img src="img_1/Landing_Image_1.png" alt="Man of the Soil" class="art-img">
-            <p style="font-size: 0.8rem; color: var(--nc-gold); margin-top: 10px;">Detail. “Man of the Soil.” Mixed media low-relief.</p>
+            <p style="font-size: 1rem; color: var(--nc-green); margin: 0; font-style: oblique;">Man of the Soil</p>
         </div>
         <div>
             <h3>Man of the Soil</h3>
             <p>This piece imagines Demas rising from the ground that taught him. It is a simple, essential portrait: creativity emerging from soil, tradition and everyday craft.</p>
             <p>The work echoes our conversations and the phrase that guided the project: <strong>“If he has recognition out there, it’s because of what he did in here.”</strong></p>
-            <div style="margin-top: 2rem; padding: 1rem; border: 1px solid var(--nc-gold); display: inline-block;">
-                <span style="color: var(--nc-gold);">[ QR ]</span> SCAN FOR THE MINI-EXHIBIT →
+            <div style="margin-top: 2rem; padding: fit; border: fit solid var(--nc-gold); display: inline-block;">
+                <a href="src/mini_exhibition.html" class="btn mini_exhibition">MINI-EXHIBIT</a>
             </div>
         </div>
     </section>
@@ -278,8 +383,137 @@
         </div>
     </section>
 
-    <footer style="padding: 2rem 10%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.8rem; opacity: 0.5;">
+    <footer style="padding: 2rem 10%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.8rem; opacity: 0.5; background-color: var(--nc-graypurple);">
         &copy; 2025 The Legacy Initiative. | Not as memory, but as method.
     </footer>
+
+    <script>
+        // Floating canvas strokes that follow the pointer: create small canvases at pointer position
+        (function(){
+            const hero = document.querySelector('.hero');
+            if(!hero) return;
+
+            const palette = ['#f4a036','#fc6c02','#c8a2c8','#039641','#ffffff'];
+
+            function makeStroke(x, y, pressure = 0.5){
+                const dpr = window.devicePixelRatio || 1;
+                const cssSize = 140; // visual size
+                const canvas = document.createElement('canvas');
+                canvas.className = 'floating-stroke';
+                canvas.width = Math.floor(cssSize * dpr);
+                canvas.height = Math.floor(cssSize * dpr);
+                canvas.style.width = cssSize + 'px';
+                canvas.style.height = cssSize + 'px';
+                const ctx = canvas.getContext('2d');
+                ctx.setTransform(dpr,0,0,dpr,0,0);
+
+                const center = cssSize/2;
+                const size = 18 + (Math.random()*40 + pressure*40);
+                const color = palette[Math.floor(Math.random()*palette.length)];
+                const g = ctx.createRadialGradient(center, center, 0, center, center, size);
+                g.addColorStop(0, color);
+                g.addColorStop(0.6, color + '88');
+                g.addColorStop(1, 'rgba(0,0,0,0)');
+
+                ctx.fillStyle = g;
+                ctx.beginPath();
+                ctx.arc(center, center, size, 0, Math.PI*2);
+                ctx.fill();
+
+                // Place at pointer position
+                canvas.style.left = x + 'px';
+                canvas.style.top = y + 'px';
+                document.body.appendChild(canvas);
+
+                // Remove after animation
+                canvas.addEventListener('animationend', () => canvas.remove());
+                setTimeout(() => canvas.remove(), 1400);
+            }
+
+            // Draw on pointerdown and while pointer is pressed and moving
+            let drawing = false;
+            hero.addEventListener('pointerdown', e => {
+                drawing = true;
+                makeStroke(e.clientX, e.clientY, e.pressure || 0.6);
+                try{ e.target.setPointerCapture && e.target.setPointerCapture(e.pointerId); }catch(e){}
+            });
+            window.addEventListener('pointerup', () => drawing = false);
+            hero.addEventListener('pointermove', e => {
+                if(!drawing) return;
+                // create a stroke at the pointer with fast cadence
+                makeStroke(e.clientX, e.clientY, e.pressure || 0.5);
+            });
+
+            // Optional: light ambient strokes near center when idle
+            let idleTimer = null;
+            function resetIdle(){
+                if(idleTimer) clearTimeout(idleTimer);
+                idleTimer = setTimeout(()=>{
+                    const rect = hero.getBoundingClientRect();
+                    const x = rect.left + rect.width * (0.5 + (Math.random()-0.5)*0.2);
+                    const y = rect.top + rect.height * (0.5 + (Math.random()-0.5)*0.2);
+                    makeStroke(x, y, 0.6);
+                }, 2500);
+            }
+            ['pointermove','pointerdown'].forEach(ev => hero.addEventListener(ev, resetIdle));
+            resetIdle();
+        })();
+    </script>
+    <script>
+        // Watercolor texture overlay: generate organic noise pattern
+        (function(){
+            const canvas = document.createElement('canvas');
+            canvas.id = 'watercolor';
+            document.body.appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+
+            function resize(){
+                const dpr = window.devicePixelRatio || 1;
+                canvas.width = Math.floor(window.innerWidth * dpr);
+                canvas.height = Math.floor(window.innerHeight * dpr);
+                canvas.style.width = window.innerWidth + 'px';
+                canvas.style.height = window.innerHeight + 'px';
+                ctx.setTransform(dpr,0,0,dpr,0,0);
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            // Generate Perlin-like noise using multiple sine waves
+            function generateWatercolorNoise(){
+                const imageData = ctx.createImageData(window.innerWidth, window.innerHeight);
+                const data = imageData.data;
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+
+                for(let i=0; i<data.length; i+=4){
+                    const index = i / 4;
+                    const x = index % w;
+                    const y = Math.floor(index / w);
+
+                    // Multi-octave sine-based noise
+                    let val = 0;
+                    val += Math.sin(x * 0.005 + y * 0.005) * 0.5;
+                    val += Math.sin(x * 0.015 - y * 0.008) * 0.3;
+                    val += Math.sin(x * 0.03 + y * 0.02) * 0.2;
+                    val += (Math.random() - 0.5) * 0.15; // organic randomness
+
+                    // Normalize to 0-255
+                    const brightness = Math.floor((val + 1) * 127.5);
+                    data[i] = brightness;     // R
+                    data[i+1] = brightness;   // G
+                    data[i+2] = brightness;   // B
+                    data[i+3] = 255;          // A
+                }
+
+                ctx.putImageData(imageData, 0, 0);
+            }
+
+            generateWatercolorNoise();
+        })();
+    </script>
+
+    <div class="legacy-logo">
+        <img src="img_1/The_Legacy_Initiative_logo.jpeg" alt="The Legacy Initiative">
+    </div>
 </body>
 </html>

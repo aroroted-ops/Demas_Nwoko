@@ -195,6 +195,28 @@
         opacity: 0.5;
       }
 
+      /* Legacy Initiative Logo */
+      .legacy-logo {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        opacity: 0.7;
+        z-index: 999;
+        transition: opacity 0.3s ease;
+      }
+
+      .legacy-logo:hover {
+        opacity: 1;
+      }
+
+      .legacy-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
       /* Responsive design for smaller screens */
       @media (max-width: 768px) {
         .hero-content {
@@ -244,12 +266,12 @@
 <body>
 
   <header>
-    <img src="img_1/WhatsApp Image 2025-12-19 at 02.20.07 (3).jpeg" alt="New Culture Studios" class="logo">
+    <img src="img_1/New_Culture_Studios_logo.jpeg" alt="New Culture Studios" class="logo">
     <nav>
-      <a href="#artwork">Artwork</a>
-      <a href="#postcards">Postcards</a>
-      <a href="#story">The Story</a>
-      <a href="#credits">Credits</a>
+      <a href="index.html#artwork">Artwork</a>
+      <a href="index.html#postcards">Postcards</a>
+      <a href="index.html#story">The Story</a>
+      <a href="index.html#credits">Credits</a>
     </nav>
   </header>
 
@@ -272,6 +294,10 @@
   <footer>
     &copy; 2025 The Legacy Initiative. | Not as memory, but as method.
   </footer>
+
+  <div class="legacy-logo">
+    <img src="img_1/The_Legacy_Initiative_logo.jpeg" alt="The Legacy Initiative">
+  </div>
 
 </body>
 </html>
