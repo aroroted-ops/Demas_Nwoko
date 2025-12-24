@@ -1,15 +1,32 @@
 /* Demas Nwoko - Main Stylesheet - main_3.css */
+@font-face {
+    font-family: 'MyFont';
+    src: url('NewCulture-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --nc-black: #0a0a0a;
-    --nc-gold: #d4af37;
+    --nc-gold: #f4a036;
     --nc-white: #ffffff;
+    --nc-gray_purple: #1c182e;
+    --nc-green: #039641;
+    --nc-orange: #fc6c02;
+    --nc-red: #cd0900;
+    --heading-font: 'MyFont';
+    --body-font: 'Inter', sans-serif, 'system-sans';
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: var(--body-font);
     background-color: var(--nc-white);
     color: var(--nc-black);
+    line-height: 1.6;
+    font-size: 16px;
+
 }
 
 header, .hero, .story {
@@ -17,13 +34,16 @@ header, .hero, .story {
     box-sizing: border-box;
 }
 
-/* Header Styles   */
+/* Header Styles */
 header {
     background-color: var(--nc-black);
-    padding: 1rem;
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    top: 0;
+    position: sticky;
+    background: var();
 }
 
 header nav a {
@@ -46,8 +66,9 @@ header .logo {
     align-items: center;
     text-align: center;
     padding: 2rem;
-    background-color: var(--nc-gold);
+    background-color: var(--nc-white);
     color: var(--nc-black);
+    font-style: var(--heading-font);
 }
 
 .hero-content h1, .hero-content h2 {
