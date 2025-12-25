@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demas Nwoko — Vernacular | The Natural Language of Design</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --nc-graypurple: #1c182e;
+            --nc-gold: #f4a036;
+            --white: #ffffff;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        /* Lenis Smooth Scroll Setup */
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto; }
+        
+        body {
+            margin: 0;
+            background-color: var(--nc-graypurple);
+            color: var(--white);
+            font-family: var(--body-font);
+            cursor: none; /* Required for custom cursor */
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Magnetic Cursor --- */
+        .cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--nc-gold); border-radius: 50%; pointer-events: none; z-index: 9999; }
+        .cursor-circle { position: fixed; width: 40px; height: 40px; border: 1px solid var(--nc-gold); border-radius: 50%; pointer-events: none; z-index: 9998; transition: transform 0.15s ease-out; }
+
+        header {
+            position: fixed; top: 0; width: 100%; display: flex;
+            justify-content: space-between; align-items: center;
+            padding: 30px 5%; z-index: 2000; mix-blend-mode: difference;
+        }
+
+        /* --- BelArosa Sticky Scene Architecture --- */
+        .page-wrapper { position: relative; }
+
+        .section-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        /* The background image that stays fixed or moves slightly */
+        .bg-fixed {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 110%; /* Extra height for parallax */
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(40%);
+            transition: transform 0.1s linear;
+        }
+
+        /* Centered Narrative Text */
+        .content-wrap {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 850px;
+            padding: 0 5%;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .is-visible .content-wrap {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 { font-family: var(--heading-font); font-size: clamp(2.5rem, 7vw, 5rem); margin: 0; line-height: 0.9; }
+        h2 { font-family: var(--heading-font); font-size: clamp(1.5rem, 4vw, 2.8rem); color: var(--nc-gold); margin-bottom: 1rem; }
+        p { font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; }
+        .highlight { -webkit-text-stroke: 1px var(--nc-gold); color: transparent; }
+
+        /* --- Special Hero Layout (Page 1) --- */
+        .hero-split { display: flex; justify-content: space-between; width: 100%; align-items: center; }
+        .hero-img { max-width: 350px; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5)); }
+
+        /* --- Credits Box --- */
+        .credits-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+            text-align: left; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="cursor-dot" id="dot"></div>
+    <div class="cursor-circle" id="circle"></div>
+
+    <header>
+        <img src="img_1/New_Culture_Studios_logo.jpeg" alt="Logo" style="height: 45px;">
+        <div style="color:var(--nc-gold); letter-spacing:3px; font-size:0.7rem; text-transform:uppercase;">Vernacular</div>
+    </header>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content" class="page-wrapper">
+
+            <section class="section-container is-visible">
+                <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div>
+                <div class="content-wrap" style="max-width: 100%;">
+                    <div class="hero-split">
+                        <h1 style="text-align: left;"><span class="highlight">DEMAS</span><br>NWOKO</h1>
+                        <img src="img_1/Landing_Image_1.png" class="hero-img">
+                        <h1 style="text-align: right;"><span class="highlight">HIS HEARTBEAT</span><br>HIS LEGACY</h1>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container reveal-target">
+                <div class="bg-fixed" style="background-image: url('img_1/Landing_Image_1.png');"></div>
+                <div class="content-wrap">
+                    <p style="font-style: italic; font-size: 2rem;">"...if it is not vernacular, what else is there? Vernacular is your mother's tongue—that is your nature."</p>
+                    <strong style="color:var(--nc-gold)">Baba Demas, December 2023</strong>
+                </div>
+            </section>
+
+            <section class="section-container reveal-target">
+                <div class="bg-fixed" style="background-image: url('img_1/Root_image_Postcard_1.jpeg');"></div>
+                <div class="content-wrap">
+                    <h1>The Story</h1>
+                    <p>We remember our three-hour session in Ibadan. Encountering in person someone we had only read about in Visual Arts classes.</p>
+                    <p>To Baba, <strong>vernacular is the natural language of design.</strong></p>
+                </div>
+            </section>
+
+            <section class="section-container reveal-target">
+                <div class="bg-fixed" style="background-image: url('img_1/Root_image_Postcard_2-3.jpeg');"></div>
+                <div class="content-wrap">
+                    <h2>His Roots, His Future</h2>
+                    <p>Baba sought to root modern art in the soil of Nigerian life—its materials, rhythms, and cosmology.</p>
+                    <p>He saw design not as a borrowed language, but as a <strong>living dialect of place.</strong></p>
+                </div>
+            </section>
+
+            <section class="section-container reveal-target">
+                <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div>
+                <div class="content-wrap">
+                    <h1>The Art Piece</h1>
+                    <p>A man shaped by soil. And shaping with soil.</p>
+                    <p>Simply a <span class="highlight">silent revolution.</span></p>
+                </div>
+            </section>
+
+            <section class="section-container reveal-target" style="background: #000;">
+                <div class="content-wrap">
+                    <h1>Credits</h1>
+                    <div class="credits-grid">
+                        <div>
+                            <strong>Project Lead</strong>
+                            <p style="font-size: 1rem;">Divine Chukwubuihem</p>
+                        </div>
+                        <div>
+                            <strong>Artwork & Relief</strong>
+                            <p style="font-size: 1rem;">John-Africa Elionai</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer style="text-align: center; padding: 40px; font-size: 0.7rem; opacity: 0.4;">
+                &copy; 2025 THE LEGACY INITIATIVE. ALL RIGHTS RESERVED.
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script>
+        // 1. Initialize Smooth Scroll
+        const lenis = new Lenis({ duration: 1.4 });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        // 2. BelArosa Parallax & Reveal Logic
+        const targets = document.querySelectorAll('.reveal-target');
+        const backgrounds = document.querySelectorAll('.bg-fixed');
+
+        lenis.on('scroll', (e) => {
+            const y = window.scrollY;
+            
+            // Move backgrounds slightly for parallax depth
+            backgrounds.forEach(bg => {
+                bg.style.transform = `translateY(${y * 0.1}px)`;
+            });
+        });
+
+        // 3. Intersection Observer (The Reveal)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.4 });
+
+        targets.forEach(t => observer.observe(t));
+
+        // 4. Custom Cursor
+        const dot = document.getElementById('dot');
+        const circle = document.getElementById('circle');
+        document.addEventListener('mousemove', (e) => {
+            dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            circle.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+        });
+    </script>
+</body>
+</html>
