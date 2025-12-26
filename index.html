@@ -112,7 +112,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 110%;
+            height: 100%;
             z-index: -1;
             background-size: cover;
             background-repeat: no-repeat;
@@ -125,8 +125,9 @@
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            filter: none;
-            height: 100%;
+            filter: 0.1rem;
+            height: auto;
+            max-width: 100%;
         }
 
         .content-wrap {
@@ -141,8 +142,9 @@
         }
 
         .is-visible .content-wrap {
-            opacity: 1;
+            opacity: 100;
             transform: translateY(0);
+            backface-visibility: visible;
         }
 
         h1 { 
@@ -272,9 +274,9 @@
                 <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div>
                 <div class="content-wrap" style="max-width: 100%;">
                     <div class="hero-split">
-                        <h1 style="text-align: left; font-family: var(--custom-font);"><span class="highlight">DEMAS</span><br>NWOKO</h1>
+                        <h1 style="text-align: left; font-family: var(--custom-font); font-size: 2.5rem;"><span class="highlight">DEMAS</span><br>NWOKO</h1>
                         <img src="img_1/Landing_Image_1.png" class="hero-img">
-                        <h1 style="text-align: right; font-family: var(--custom-font);"><span class="highlight">HIS HEARTBEAT</span><br>HIS LEGACY</h1>
+                        <h1 style="text-align: right; font-family: var(--custom-font); font-size: 2.5rem;"><span class="highlight">HIS HEARTBEAT</span><br>HIS LEGACY</h1>
                     </div>
                 </div>
             </section>
@@ -319,7 +321,7 @@
             </section>
 
             <section class="section-container reveal-target">
-                <div class="bg-fixed" style="background-image: url('img_1/Root_image_Postcard_2-3.jpeg'); filter: brightness(30%);"></div>
+                <div class="bg-fixed" style="background-image: url('img_1/Root_image_Postcard_2-3.jpeg');"></div>
                 <div class="content-wrap">
                     <h1 style="color:var(--white); text-shadow: 0 6px 30px rgba(0,0,0,0.7);">His Roots His Future</h1>
                     <h2 style="color:var(--nc-gold);">Baba's journey into vernacular began <strong>before</strong> the days of the Zaria Art Society.</h2>
@@ -437,7 +439,7 @@
                         </div>
                         <div>
                             <strong>Artwork (Low-relief)</strong>
-                            <p style="font-size: 1rem;">John-Africa Elionai & Sculptor</p>
+                            <p style="font-size: 1rem;">John-Africa Elionai & Obikoya Olukayode Emmanuel</p>
                         </div>
                         <div>
                             <strong>Postcards & Illustrations:</strong>
